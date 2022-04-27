@@ -34,7 +34,7 @@ class MobileBody extends StatelessWidget {
       body: SingleChildScrollView(
         controller: scrollController,
         child: Container(
-          height: setHeight(context, 5),
+          height: setHeight(context, 5) - (56 * 5),
           color: backColor,
           child: Column(
             children: const [
