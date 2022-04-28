@@ -23,7 +23,7 @@ class HomeWidgetMobile extends StatelessWidget {
             height: setHeight(context, .5),
             color: backColor,
             child: Image.asset(
-              'img/mobile-logo.png',
+              'img/titles/mobile-logo.png',
               fit: BoxFit.contain,
             ),
           ),

@@ -40,10 +40,10 @@ class _WaveAnimWidgetState extends State<WaveAnimWidget>
     final double waveHeight = widget.height;
     return Stack(
       children: [
-        singleLogo(-.7, 'img/django.png'),
-        singleLogo(-.3, 'img/python.png'),
-        singleLogo(.7, 'img/vue.png'),
-        singleLogo(.3, 'img/flutter.png'),
+        singleLogo(-.7, 'img/skills/django.png'),
+        singleLogo(-.3, 'img/skills/python.png'),
+        singleLogo(.7, 'img/skills/vue.png'),
+        singleLogo(.3, 'img/skills/flutter.png'),
         SizedBox(
           height: waveHeight,
           child: ClipPath(

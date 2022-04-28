@@ -20,7 +20,7 @@ class AboutWidgetMobile extends StatelessWidget {
             height: setHeight(context, .2),
             width: setWidth(context, 1),
             child: Image.asset(
-              'img/ssk-about.jpeg',
+              'img/profile/ssk-about.jpeg',
               fit: BoxFit.contain,
             ),
           ),
@@ -28,7 +28,7 @@ class AboutWidgetMobile extends StatelessWidget {
             height: setHeight(context, .1),
             width: setWidth(context, 1),
             child: Image.asset(
-              'img/helloworld.png',
+              'img/titles/helloworld.png',
             ),
           ),
           SizedBox(

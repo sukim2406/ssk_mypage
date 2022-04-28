@@ -25,7 +25,7 @@ class ContactWidgetMobile extends StatelessWidget {
           SizedBox(
             height: setHeight(context, .15),
             width: setWidth(context, .8),
-            child: Image.asset('img/contactme.png'),
+            child: Image.asset('img/titles/contactme.png'),
           ),
           ClipRRect(
             borderRadius: BorderRadius.circular(25),

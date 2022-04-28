@@ -56,7 +56,7 @@ class _SkillsWidgetMobileState extends State<SkillsWidgetMobile> {
                 ),
                 SizedBox(
                   height: setHeight(context, .2),
-                  child: Image.asset('img/skills-title.png'),
+                  child: Image.asset('img/titles/skills-title.png'),
                 ),
                 Expanded(
                   child: Container(),
