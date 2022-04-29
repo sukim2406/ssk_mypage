@@ -1,3 +1,5 @@
+// <a href="https://www.freepnglogos.com/pics/html5-logo">Html5 Logo from freepnglogos.com</a>
+
 import 'package:flutter/material.dart';
 
 const backColor = Color.fromRGBO(0, 0, 0, 1);
@@ -41,24 +43,44 @@ const List<String> ecomwebappImgs = [
 
 const projShareDo = {
   'screenshots': sharedoImgs,
-  'about': 'Share-Do Details',
+  'about':
+      'Share-Do is a group to-do / project management web-app that allows users to create, track, share to-do items. Each to-do item can have sub to-dos and creator can add contributors. Contributors can mark to-do as finished, and they can also make sub-todo that corresponding to original todo.',
   'github': 'https://github.com/sukim2406/ShareDo',
   'title': 'Share-Do',
   'link': 'https://vue-sharedo.web.app/',
+  'tech': [
+    'img/skills/css.png',
+    'img/skills/html.png',
+    'img/skills/javascript.png',
+    'img/skills/vue.png',
+    'img/skills/firebase.png',
+  ],
 };
 
 const projSoSoDay = {
   'screenshots': sosodayImgs,
-  'about': 'SoSoDay Details',
+  'about':
+      'SoSoDay is a couple\'s SNS app that allows to chat, upload image, share todos just between two of you.',
   'github': 'https://github.com/sukim2406/SoSoDay',
   'title': 'SoSo Day',
-  'link': ''
+  'link': '',
+  'tech': [
+    'img/skills/dart.png',
+    'img/skills/flutter.png',
+    'img/skills/firebase.png',
+  ],
 };
 
 const projEcomWebApp = {
   'screenshots': ecomwebappImgs,
-  'about': 'EcomWebApp Details',
+  'about':
+      'It is a mock up e-commerce webapp that shows list of products with usual functionalities such as saving favorites and carts. It will also generate receipt page with order Id upon order, which can be used to view order status.',
   'github': 'https://github.com/sukim2406/ssk_mypage',
   'title': 'Ecommerce Web-app',
-  'link': 'https://sosodev-ecom-webapp.web.app/'
+  'link': 'https://sosodev-ecom-webapp.web.app/',
+  'tech': [
+    'img/skills/dart.png',
+    'img/skills/flutter.png',
+    'img/skills/firebase.png',
+  ]
 };

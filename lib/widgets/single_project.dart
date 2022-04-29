@@ -38,56 +38,6 @@ class _SingleProjectMobileState extends State<SingleProjectMobile> {
           ),
         )
         .toList();
-    // final List<Widget> imgSliders = imgList
-    //     .map(
-    //       (item) => SizedBox(
-    //         child: Container(
-    //           height: setHeight(context, .5),
-    //           margin: const EdgeInsets.all(5.0),
-    //           child: ClipRRect(
-    //             borderRadius: const BorderRadius.all(Radius.circular(5.0)),
-    //             child: Stack(
-    //               children: <Widget>[
-    //                 Image.asset(
-    //                   item,
-    //                   fit: BoxFit.contain,
-    //                 ),
-    //                 Positioned(
-    //                   bottom: 0.0,
-    //                   left: 0.0,
-    //                   right: 0.0,
-    //                   child: Container(
-    //                     decoration: const BoxDecoration(
-    //                       gradient: LinearGradient(
-    //                         colors: [
-    //                           Color.fromARGB(200, 0, 0, 0),
-    //                           Color.fromARGB(0, 0, 0, 0),
-    //                         ],
-    //                         begin: Alignment.bottomCenter,
-    //                         end: Alignment.topCenter,
-    //                       ),
-    //                     ),
-    //                     padding: const EdgeInsets.symmetric(
-    //                       vertical: 10.0,
-    //                       horizontal: 20.0,
-    //                     ),
-    //                     child: Text(
-    //                       'No. ${imgList.indexOf(item)} image',
-    //                       style: const TextStyle(
-    //                         color: Colors.white,
-    //                         fontSize: 20.0,
-    //                         fontWeight: FontWeight.bold,
-    //                       ),
-    //                     ),
-    //                   ),
-    //                 ),
-    //               ],
-    //             ),
-    //           ),
-    //         ),
-    //       ),
-    //     )
-    //     .toList();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
@@ -98,9 +48,73 @@ class _SingleProjectMobileState extends State<SingleProjectMobile> {
         color: Colors.black,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            SizedBox(
+              height: setHeight(context, .08),
+              width: setWidth(context, .8),
+              child: Text(
+                widget.project['title'],
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  color: primaryColor,
+                  fontSize: 35,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            SizedBox(
+              height: setHeight(context, .15),
+              width: setWidth(context, .8),
+              child: Text(
+                widget.project['about'],
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  color: secondaryColor,
+                ),
+              ),
+            ),
+            SizedBox(
+              height: setHeight(context, .1),
+              width: setWidth(context, .9),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    widget.project['github'],
+                    style: const TextStyle(
+                      color: quaternaryColor,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    widget.project['link'],
+                    style: const TextStyle(
+                      color: quaternaryColor,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: setHeight(context, .17) - 56,
+              width: setWidth(context, .9),
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: widget.project['tech'].length,
+                itemBuilder: (context, index) {
+                  return SizedBox(
+                    height: setHeight(context, .17) - 56,
+                    width: setWidth(context, .3),
+                    child: Image.asset(widget.project['tech'][index],
+                        fit: BoxFit.contain),
+                  );
+                },
+              ),
+            ),
             Container(
-              height: setHeight(context, .6),
+              height: setHeight(context, .5),
               width: setWidth(context, .9),
               color: primaryColor,
               child: Column(
@@ -113,7 +127,7 @@ class _SingleProjectMobileState extends State<SingleProjectMobile> {
                       enlargeCenterPage: true,
                       aspectRatio: 2.0,
                       viewportFraction: 1.0,
-                      height: setHeight(context, .5),
+                      height: setHeight(context, .45),
                       onPageChanged: (index, reason) {
                         setState(
                           () {
