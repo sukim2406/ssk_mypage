@@ -1,6 +1,7 @@
 import 'dart:ui';
-
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 import '../constants/dimensions.dart';
 import '../constants/constants.dart';
@@ -16,6 +17,35 @@ class ContactWidgetMobile extends StatelessWidget {
     TextEditingController emailController = TextEditingController();
     TextEditingController subjectController = TextEditingController();
     TextEditingController messageController = TextEditingController();
+
+    Future sendEmail({
+      required String name,
+      required String email,
+      required String subject,
+      required String message,
+    }) async {
+      final url = Uri.parse('https://api.emailjs.com/api/v1.0/email/send');
+      final response = await http.post(
+        url,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: json.encode(
+          {
+            'service_id': 'service_u82n7pp',
+            'template_id': 'template_uvr1nsp',
+            'user_id': 'ssk.sosodev',
+            'template_params': {
+              'user_name': name,
+              'user_email': email,
+              'user_subject': subject,
+              'user_message': message,
+            }
+          },
+        ),
+      );
+    }
+
     return Container(
       color: backColor,
       height: setHeight(context, 1) - 56,
@@ -151,6 +181,18 @@ class ContactWidgetMobile extends StatelessWidget {
                         primary: primaryColor,
                       ),
                       onPressed: () {
+                        if (nameController.text.isNotEmpty &&
+                            emailController.text.isNotEmpty &&
+                            subjectController.text.isNotEmpty &&
+                            messageController.text.isNotEmpty) {
+                          sendEmail(
+                              name: nameController.text,
+                              email: emailController.text,
+                              subject: subjectController.text,
+                              message: messageController.text);
+                        } else {
+                          print('empty field detected');
+                        }
                         print(nameController.text +
                             ' ' +
                             emailController.text +
