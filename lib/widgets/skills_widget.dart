@@ -69,7 +69,7 @@ class _SkillsWidgetMobileState extends State<SkillsWidgetMobile> {
             width: setWidth(context, .9),
             child: RichText(
               text: const TextSpan(
-                text: 'What to write here ',
+                text: 'Languages : \n',
                 style: TextStyle(
                   color: secondaryColor,
                   fontSize: 15,
@@ -77,9 +77,27 @@ class _SkillsWidgetMobileState extends State<SkillsWidgetMobile> {
                 ),
                 children: [
                   TextSpan(
-                    text: 'C JAVA PYTHON',
+                    text: 'JAVASCRIPT, C, JAVA, PYTHON, DART \n',
                     style: TextStyle(
                       color: primaryColor,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  TextSpan(text: 'Frameworks : \n'),
+                  TextSpan(
+                    text: 'DJANGO, VUE, FLUTTER \n',
+                    style: TextStyle(
+                      color: tertiaryColor,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  TextSpan(text: 'Other : \n'),
+                  TextSpan(
+                    text: 'HTML, CSS, FIREBASE, GIT \n',
+                    style: TextStyle(
+                      color: quaternaryColor,
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
