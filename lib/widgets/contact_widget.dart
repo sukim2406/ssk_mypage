@@ -5,6 +5,7 @@ import 'package:http/http.dart' as http;
 
 import '../constants/dimensions.dart';
 import '../constants/constants.dart';
+import '../constants/emailjs.dart';
 
 import '../widgets/sns_btn.dart';
 
@@ -32,9 +33,9 @@ class ContactWidgetMobile extends StatelessWidget {
         },
         body: json.encode(
           {
-            'service_id': 'service_u82n7pp',
-            'template_id': 'template_uvr1nsp',
-            'user_id': 'ssk.sosodev',
+            'service_id': serviceId,
+            'template_id': templateId,
+            'user_id': userId,
             'template_params': {
               'user_name': name,
               'user_email': email,
