@@ -41,52 +41,6 @@ class IntroductionText extends StatelessWidget {
               ),
             ),
             TextSpan(text: ' with computer science degree.\n\n'),
-            // TextSpan(text: 'I fell in love with programming with simple'),
-            // // Java /Hello, World/ program, experienced power of C through pointers, amazed by convenience of Python'),
-            // TextSpan(
-            //   text: ' Java',
-            //   style: TextStyle(
-            //     fontWeight: FontWeight.bold,
-            //     color: primaryColor,
-            //     fontSize: 26,
-            //   ),
-            // ),
-            // TextSpan(
-            //   text: '/Hello, World!/ program, experienced power of',
-            // ),
-            // TextSpan(
-            //   text: ' C ',
-            //   style: TextStyle(
-            //     fontWeight: FontWeight.bold,
-            //     color: primaryColor,
-            //     fontSize: 26,
-            //   ),
-            // ),
-            // TextSpan(
-            //   text: 'pointers, amazed by convenience of ',
-            // ),
-            // TextSpan(
-            //   text: ' Python',
-            //   style: TextStyle(
-            //     fontWeight: FontWeight.bold,
-            //     color: primaryColor,
-            //     fontSize: 26,
-            //   ),
-            // ),
-            // TextSpan(
-            //   text: ' and most recently, I have been enjoying ',
-            // ),
-            // TextSpan(
-            //   text: 'Flutter ',
-            //   style: TextStyle(
-            //     fontWeight: FontWeight.bold,
-            //     color: primaryColor,
-            //     fontSize: 26,
-            //   ),
-            // ),
-            // TextSpan(
-            //   text: 'for its productivity and simplicity.\n\n ',
-            // ),
             TextSpan(
                 text:
                     'Edger to learn, persistant and consistant individual with'),

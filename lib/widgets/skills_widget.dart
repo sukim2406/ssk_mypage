@@ -133,3 +133,128 @@ class _SkillsWidgetMobileState extends State<SkillsWidgetMobile> {
     );
   }
 }
+
+class SkillsWidgetDesktop extends StatefulWidget {
+  const SkillsWidgetDesktop({Key? key}) : super(key: key);
+
+  @override
+  State<SkillsWidgetDesktop> createState() => _SkillsWidgetDesktopState();
+}
+
+class _SkillsWidgetDesktopState extends State<SkillsWidgetDesktop> {
+  ScrollController scrollController = ScrollController();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+      double minScrollExtent = scrollController.position.minScrollExtent;
+      double maxScrollExtent = scrollController.position.maxScrollExtent;
+
+      animateToMaxMin(maxScrollExtent, minScrollExtent, maxScrollExtent, 15,
+          scrollController);
+    });
+  }
+
+  animateToMaxMin(double max, double min, double direction, int seconds,
+      ScrollController controller) {
+    controller
+        .animateTo(direction,
+            duration: Duration(seconds: seconds), curve: Curves.linear)
+        .then((value) {
+      direction = direction == max ? min : max;
+      animateToMaxMin(max, min, direction, seconds, controller);
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: setHeight(context, 1),
+      width: setWidth(context, .7),
+      child: Column(
+        children: [
+          Expanded(
+            child: Container(),
+          ),
+          SizedBox(
+            height: setHeight(context, .2),
+            width: setWidth(context, .7),
+            child: Image.asset(
+              'img/titles/myskillsdesk.png',
+              fit: BoxFit.contain,
+            ),
+          ),
+          SizedBox(
+            height: setHeight(context, .05),
+          ),
+          SizedBox(
+            height: setHeight(context, .3),
+            width: setWidth(context, .7),
+            child: RichText(
+              text: const TextSpan(
+                text: 'Languages : \n',
+                style: TextStyle(
+                  color: secondaryColor,
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                ),
+                children: [
+                  TextSpan(
+                    text: 'JAVASCRIPT, C, JAVA, PYTHON, DART \n',
+                    style: TextStyle(
+                      color: primaryColor,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  TextSpan(text: 'Frameworks : \n'),
+                  TextSpan(
+                    text: 'DJANGO, VUE, FLUTTER \n',
+                    style: TextStyle(
+                      color: secondaryColor,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  TextSpan(text: 'Other : \n'),
+                  TextSpan(
+                    text: 'HTML, CSS, FIREBASE, GIT \n',
+                    style: TextStyle(
+                      color: backColor,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(
+            height: setHeight(context, .3),
+            child: SingleChildScrollView(
+              controller: scrollController,
+              scrollDirection: Axis.horizontal,
+              child: SizedBox(
+                height: setHeight(context, .5),
+                width: setWidth(context, 2),
+                child: Stack(
+                  children: [
+                    Container(),
+                    Positioned.fill(
+                      child: WaveAnimWidget(
+                        height: setHeight(context, .3),
+                        width: setWidth(context, 2),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

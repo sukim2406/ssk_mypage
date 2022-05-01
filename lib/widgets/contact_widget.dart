@@ -209,7 +209,9 @@ class ContactWidgetMobile extends StatelessWidget {
               ),
             ),
           ),
-          SnsBtn(),
+          SnsBtn(
+            desktop: false,
+          ),
         ],
       ),
     );
