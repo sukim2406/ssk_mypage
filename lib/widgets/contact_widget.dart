@@ -187,10 +187,32 @@ class ContactWidgetMobile extends StatelessWidget {
                             subjectController.text.isNotEmpty &&
                             messageController.text.isNotEmpty) {
                           sendEmail(
-                              name: nameController.text,
-                              email: emailController.text,
-                              subject: subjectController.text,
-                              message: messageController.text);
+                            name: nameController.text,
+                            email: emailController.text,
+                            subject: subjectController.text,
+                            message: messageController.text,
+                          ).then(
+                            (result) {
+                              showDialog(
+                                context: context,
+                                builder: (context) => AlertDialog(
+                                  title: const Text('Email Sent!'),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                      },
+                                      child: const Text('OK'),
+                                    ),
+                                  ],
+                                ),
+                              );
+                              nameController.clear();
+                              emailController.clear();
+                              subjectController.clear();
+                              messageController.clear();
+                            },
+                          );
                         } else {
                           print('empty field detected');
                         }
@@ -202,16 +224,265 @@ class ContactWidgetMobile extends StatelessWidget {
                             ' ' +
                             messageController.text);
                       },
-                      child: Text('Send'),
+                      child: const Text('Send'),
                     ),
                   ],
                 ),
               ),
             ),
           ),
-          SnsBtn(
+          const SnsBtn(
             desktop: false,
           ),
+        ],
+      ),
+    );
+  }
+}
+
+class ContactWidgetDesktop extends StatelessWidget {
+  const ContactWidgetDesktop({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    TextEditingController nameController = TextEditingController();
+    TextEditingController emailController = TextEditingController();
+    TextEditingController subjectController = TextEditingController();
+    TextEditingController messageController = TextEditingController();
+
+    Future sendEmail({
+      required String name,
+      required String email,
+      required String subject,
+      required String message,
+    }) async {
+      final url = Uri.parse('https://api.emailjs.com/api/v1.0/email/send');
+      final response = await http.post(
+        url,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: json.encode(
+          {
+            'service_id': serviceId,
+            'template_id': templateId,
+            'user_id': userId,
+            'template_params': {
+              'user_name': name,
+              'user_email': email,
+              'user_subject': subject,
+              'user_message': message,
+            }
+          },
+        ),
+      );
+    }
+
+    return SizedBox(
+      width: setWidth(context, .7),
+      height: setHeight(context, 1),
+      child: Column(
+        children: [
+          SizedBox(
+            height: setHeight(context, .2),
+            width: setWidth(context, .7),
+            child: Image.asset(
+              'img/titles/contactDesktop.png',
+              fit: BoxFit.contain,
+            ),
+          ),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(25),
+            child: Container(
+              height: setHeight(context, .7),
+              width: setWidth(context, .6),
+              color: secondaryColor,
+              alignment: Alignment.center,
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: setHeight(context, .1),
+                    width: setWidth(context, .5),
+                    child: Center(
+                      child: TextField(
+                        controller: nameController,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          labelText: 'Name',
+                          labelStyle: const TextStyle(
+                            color: tertiaryColor,
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                            borderSide: const BorderSide(
+                              color: tertiaryColor,
+                            ),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                            borderSide: const BorderSide(
+                              color: quaternaryColor,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: setHeight(context, .1),
+                    width: setWidth(context, .5),
+                    child: Center(
+                      child: TextField(
+                        controller: emailController,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          labelText: 'Email',
+                          labelStyle: const TextStyle(
+                            color: tertiaryColor,
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                            borderSide: const BorderSide(
+                              color: tertiaryColor,
+                            ),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                            borderSide: const BorderSide(
+                              color: quaternaryColor,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: setHeight(context, .1),
+                    width: setWidth(context, .5),
+                    child: Center(
+                      child: TextField(
+                        controller: subjectController,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          labelText: 'Subject',
+                          labelStyle: const TextStyle(
+                            color: tertiaryColor,
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                            borderSide: const BorderSide(
+                              color: tertiaryColor,
+                            ),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                            borderSide: const BorderSide(
+                              color: quaternaryColor,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: setHeight(context, .3),
+                    width: setWidth(context, .5),
+                    child: Center(
+                      child: TextField(
+                        keyboardType: TextInputType.multiline,
+                        maxLines: null,
+                        minLines: 8,
+                        controller: messageController,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          labelText: 'Message',
+                          labelStyle: const TextStyle(
+                            color: tertiaryColor,
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                            borderSide: const BorderSide(
+                              color: tertiaryColor,
+                            ),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                            borderSide: const BorderSide(
+                              color: quaternaryColor,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: setHeight(context, .05),
+                    width: setWidth(context, .4),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: tertiaryColor,
+                      ),
+                      onPressed: () {
+                        if (nameController.text.isNotEmpty &&
+                            emailController.text.isNotEmpty &&
+                            subjectController.text.isNotEmpty &&
+                            messageController.text.isNotEmpty) {
+                          sendEmail(
+                            name: nameController.text,
+                            email: emailController.text,
+                            subject: subjectController.text,
+                            message: messageController.text,
+                          ).then((result) {
+                            showDialog(
+                              context: context,
+                              builder: (context) => AlertDialog(
+                                title: const Text('Email Sent!'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: const Text('OK'),
+                                  ),
+                                ],
+                              ),
+                            );
+                            nameController.clear();
+                            emailController.clear();
+                            subjectController.clear();
+                            messageController.clear();
+                          });
+                        } else {
+                          print('empty field detected');
+                        }
+                        print(nameController.text +
+                            ' ' +
+                            emailController.text +
+                            ' ' +
+                            subjectController.text +
+                            ' ' +
+                            messageController.text);
+                      },
+                      child: const Text(
+                        'Send',
+                        style: TextStyle(
+                          color: secondaryColor,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          )
         ],
       ),
     );

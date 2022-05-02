@@ -41,6 +41,10 @@ const List<String> ecomwebappImgs = [
   'img/projects/ecomwebapp/6.png',
 ];
 
+const List<String> dailycommitprojectImgs = [
+  'img/projects/dailycommitproject/1.png',
+];
+
 const projShareDo = {
   'screenshots': sharedoImgs,
   'about':
@@ -83,4 +87,15 @@ const projEcomWebApp = {
     'img/skills/flutter.png',
     'img/skills/firebase.png',
   ]
+};
+
+const projDailyCommitProject = {
+  'screenshots': dailycommitprojectImgs,
+  'about':
+      'Since Jan. 1st 2022, I have been committing at least once per day on github, and screen recording my coding process. I have uploaded videos on youtube and made it as a playlist. It is merely my own record but it gives huge motivation to keep coding at least few hours a day.',
+  'github': 'http://github.com/sukim2406',
+  'title': 'Daily Commit Project',
+  'link':
+      'https://www.youtube.com/playlist?list=PLYrIoLucH5shIJDSezpkZz8Z7Eq0e-ykU',
+  'tech': [],
 };
