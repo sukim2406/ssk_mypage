@@ -19,6 +19,7 @@ class _SkillsWidgetMobileState extends State<SkillsWidgetMobile> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    scrollController = ScrollController();
     WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
       double minScrollExtent = scrollController.position.minScrollExtent;
       double maxScrollExtent = scrollController.position.maxScrollExtent;
@@ -28,15 +29,24 @@ class _SkillsWidgetMobileState extends State<SkillsWidgetMobile> {
     });
   }
 
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    scrollController.dispose();
+    super.dispose();
+  }
+
   animateToMaxMin(double max, double min, double direction, int seconds,
       ScrollController controller) {
-    controller
-        .animateTo(direction,
-            duration: Duration(seconds: seconds), curve: Curves.linear)
-        .then((value) {
-      direction = direction == max ? min : max;
-      animateToMaxMin(max, min, direction, seconds, controller);
-    });
+    if (controller.hasClients) {
+      controller
+          .animateTo(direction,
+              duration: Duration(seconds: seconds), curve: Curves.linear)
+          .then((value) {
+        direction = direction == max ? min : max;
+        animateToMaxMin(max, min, direction, seconds, controller);
+      });
+    }
   }
 
   @override
@@ -159,13 +169,22 @@ class _SkillsWidgetDesktopState extends State<SkillsWidgetDesktop> {
 
   animateToMaxMin(double max, double min, double direction, int seconds,
       ScrollController controller) {
-    controller
-        .animateTo(direction,
-            duration: Duration(seconds: seconds), curve: Curves.linear)
-        .then((value) {
-      direction = direction == max ? min : max;
-      animateToMaxMin(max, min, direction, seconds, controller);
-    });
+    if (scrollController.hasClients) {
+      controller
+          .animateTo(direction,
+              duration: Duration(seconds: seconds), curve: Curves.linear)
+          .then((value) {
+        direction = direction == max ? min : max;
+        animateToMaxMin(max, min, direction, seconds, controller);
+      });
+    }
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    scrollController.dispose();
+    super.dispose();
   }
 
   @override

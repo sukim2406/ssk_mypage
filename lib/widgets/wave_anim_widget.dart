@@ -36,6 +36,13 @@ class _WaveAnimWidgetState extends State<WaveAnimWidget>
   }
 
   @override
+  void dispose() {
+    // TODO: implement dispose
+    animationController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final double waveHeight = widget.height;
     return Stack(

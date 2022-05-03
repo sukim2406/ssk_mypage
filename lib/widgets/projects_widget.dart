@@ -19,6 +19,15 @@ class _ProjectsWidgetMobileState extends State<ProjectsWidgetMobile> {
   ScrollController scrollControllerThree = ScrollController();
 
   @override
+  void dispose() {
+    // TODO: implement dispose
+    scrollControllerOne.dispose();
+    scrollControllerTwo.dispose();
+    scrollControllerThree.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     List<Widget> temp1 = [
       Container(
