@@ -9,15 +9,15 @@ class IntroductionText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: setHeight(context, .5),
-      width: setWidth(context, .9),
+      height: setHeight(context, .45),
+      width: setWidth(context, .8),
       child: RichText(
         text: const TextSpan(
           text: 'Hello there! I, ',
           style: TextStyle(
             fontWeight: FontWeight.bold,
             color: secondaryColor,
-            fontSize: 20,
+            // fontSize: 20,
           ),
           children: [
             TextSpan(
@@ -25,7 +25,7 @@ class IntroductionText extends StatelessWidget {
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: primaryColor,
-                fontSize: 27,
+                // fontSize: 27,
               ),
             ),
             TextSpan(
@@ -37,7 +37,7 @@ class IntroductionText extends StatelessWidget {
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: primaryColor,
-                fontSize: 26,
+                // fontSize: 26,
               ),
             ),
             TextSpan(text: ' with computer science degree.\n\n'),
@@ -49,7 +49,7 @@ class IntroductionText extends StatelessWidget {
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: primaryColor,
-                fontSize: 26,
+                // fontSize: 26,
               ),
             ),
             TextSpan(
@@ -60,7 +60,7 @@ class IntroductionText extends StatelessWidget {
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: primaryColor,
-                fontSize: 26,
+                // fontSize: 26,
               ),
             ),
             TextSpan(
@@ -70,7 +70,7 @@ class IntroductionText extends StatelessWidget {
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: primaryColor,
-                fontSize: 26,
+                // fontSize: 26,
               ),
             ),
             TextSpan(text: ' and '),
@@ -79,10 +79,25 @@ class IntroductionText extends StatelessWidget {
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: primaryColor,
-                fontSize: 26,
+                // fontSize: 26,
               ),
             ),
             TextSpan(text: '.'),
+            TextSpan(
+                text:
+                    '\n\n I love spending my weekends watching English Premire league. Huge '),
+            TextSpan(
+              text: 'Tottenham Hotspur & Heung-min Son Fan',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: primaryColor,
+                // fontSize: 26,
+              ),
+            ),
+            TextSpan(text: '. Come On You Spurs!'),
+            TextSpan(
+                text:
+                    '\n\n I am always looking for new & fun ideas and would love to try new technologies. So please feel free to contact me any time!'),
           ],
         ),
       ),

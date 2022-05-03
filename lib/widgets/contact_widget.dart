@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -8,6 +9,7 @@ import '../constants/constants.dart';
 import '../constants/emailjs.dart';
 
 import '../widgets/sns_btn.dart';
+import '../widgets/contact_textfield.dart';
 
 class ContactWidgetMobile extends StatelessWidget {
   const ContactWidgetMobile({Key? key}) : super(key: key);
@@ -74,80 +76,17 @@ class ContactWidgetMobile extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
-                    Container(
-                      height: setHeight(context, .1),
-                      width: setWidth(context, .7),
-                      alignment: Alignment.center,
-                      child: TextField(
-                        controller: nameController,
-                        decoration: const InputDecoration(
-                          border: OutlineInputBorder(),
-                          labelText: 'Name',
-                          labelStyle: TextStyle(
-                            color: tertiaryColor,
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: secondaryColor,
-                            ),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: quaternaryColor,
-                            ),
-                          ),
-                        ),
-                      ),
+                    ContactTextFieldMobile(
+                      controller: nameController,
+                      labelText: 'Name',
                     ),
-                    Container(
-                      height: setHeight(context, .1),
-                      width: setWidth(context, .7),
-                      alignment: Alignment.center,
-                      child: TextField(
-                        controller: emailController,
-                        decoration: const InputDecoration(
-                          border: OutlineInputBorder(),
-                          labelText: 'Email',
-                          labelStyle: TextStyle(
-                            color: tertiaryColor,
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: secondaryColor,
-                            ),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: quaternaryColor,
-                            ),
-                          ),
-                        ),
-                      ),
+                    ContactTextFieldMobile(
+                      controller: emailController,
+                      labelText: 'Email',
                     ),
-                    Container(
-                      height: setHeight(context, .1),
-                      width: setWidth(context, .7),
-                      alignment: Alignment.center,
-                      child: TextField(
-                        controller: subjectController,
-                        decoration: const InputDecoration(
-                          border: OutlineInputBorder(),
-                          labelText: 'Subject',
-                          labelStyle: TextStyle(
-                            color: tertiaryColor,
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: secondaryColor,
-                            ),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: quaternaryColor,
-                            ),
-                          ),
-                        ),
-                      ),
+                    ContactTextFieldMobile(
+                      controller: subjectController,
+                      labelText: 'Subject',
                     ),
                     Container(
                       height: setHeight(context, .3),
@@ -214,15 +153,21 @@ class ContactWidgetMobile extends StatelessWidget {
                             },
                           );
                         } else {
-                          print('empty field detected');
+                          showDialog(
+                            context: context,
+                            builder: (context) => AlertDialog(
+                              title: const Text('Empty field detected'),
+                              actions: [
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: const Text('OK'),
+                                ),
+                              ],
+                            ),
+                          );
                         }
-                        print(nameController.text +
-                            ' ' +
-                            emailController.text +
-                            ' ' +
-                            subjectController.text +
-                            ' ' +
-                            messageController.text);
                       },
                       child: const Text('Send'),
                     ),
@@ -300,95 +245,17 @@ class ContactWidgetDesktop extends StatelessWidget {
               alignment: Alignment.center,
               child: Column(
                 children: [
-                  SizedBox(
-                    height: setHeight(context, .1),
-                    width: setWidth(context, .5),
-                    child: Center(
-                      child: TextField(
-                        controller: nameController,
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          labelText: 'Name',
-                          labelStyle: const TextStyle(
-                            color: tertiaryColor,
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                            borderSide: const BorderSide(
-                              color: tertiaryColor,
-                            ),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                            borderSide: const BorderSide(
-                              color: quaternaryColor,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                  ContactTextFieldDeskTop(
+                    controller: nameController,
+                    labelText: 'Name',
                   ),
-                  SizedBox(
-                    height: setHeight(context, .1),
-                    width: setWidth(context, .5),
-                    child: Center(
-                      child: TextField(
-                        controller: emailController,
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          labelText: 'Email',
-                          labelStyle: const TextStyle(
-                            color: tertiaryColor,
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                            borderSide: const BorderSide(
-                              color: tertiaryColor,
-                            ),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                            borderSide: const BorderSide(
-                              color: quaternaryColor,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                  ContactTextFieldDeskTop(
+                    controller: emailController,
+                    labelText: 'Email',
                   ),
-                  SizedBox(
-                    height: setHeight(context, .1),
-                    width: setWidth(context, .5),
-                    child: Center(
-                      child: TextField(
-                        controller: subjectController,
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          labelText: 'Subject',
-                          labelStyle: const TextStyle(
-                            color: tertiaryColor,
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                            borderSide: const BorderSide(
-                              color: tertiaryColor,
-                            ),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                            borderSide: const BorderSide(
-                              color: quaternaryColor,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                  ContactTextFieldDeskTop(
+                    controller: subjectController,
+                    labelText: 'Subject',
                   ),
                   SizedBox(
                     height: setHeight(context, .3),
@@ -461,15 +328,21 @@ class ContactWidgetDesktop extends StatelessWidget {
                             messageController.clear();
                           });
                         } else {
-                          print('empty field detected');
+                          showDialog(
+                            context: context,
+                            builder: (context) => AlertDialog(
+                              title: const Text('Empty field detected'),
+                              actions: [
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: const Text('OK'),
+                                ),
+                              ],
+                            ),
+                          );
                         }
-                        print(nameController.text +
-                            ' ' +
-                            emailController.text +
-                            ' ' +
-                            subjectController.text +
-                            ' ' +
-                            messageController.text);
                       },
                       child: const Text(
                         'Send',

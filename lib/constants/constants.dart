@@ -41,6 +41,14 @@ const List<String> ecomwebappImgs = [
   'img/projects/ecomwebapp/6.png',
 ];
 
+const List<String> lookandlikeImgs = [
+  'img/projects/lookandlike/1.png',
+  'img/projects/lookandlike/2.png',
+  'img/projects/lookandlike/3.png',
+  'img/projects/lookandlike/4.png',
+  'img/projects/lookandlike/5.png',
+];
+
 const List<String> dailycommitprojectImgs = [
   'img/projects/dailycommitproject/1.png',
 ];
@@ -86,6 +94,20 @@ const projEcomWebApp = {
     'img/skills/dart.png',
     'img/skills/flutter.png',
     'img/skills/firebase.png',
+  ]
+};
+
+const projLookAndLike = {
+  'screenshots': lookandlikeImgs,
+  'about':
+      'Look & Like is an outfit image sharing SNS that enables you to share outfit ideas with its product information. You can upload your image, and search for others. The difference with other SNS applications are that in Look&Like you can only \'Like\' a post and does not provide messaging or leave a comment.',
+  'title': 'Look & Like ( In developement )',
+  'github': 'https://github.com/sukim2406/LookNLike',
+  'tech': [
+    'img/skills/dart.png',
+    'img/skills/flutter.png',
+    'img/skills/django.png',
+    'img/skills/python.png',
   ]
 };
 

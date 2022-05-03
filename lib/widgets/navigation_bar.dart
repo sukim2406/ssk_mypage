@@ -13,66 +13,74 @@ class NavigationBarMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Drawer(
-      child: Container(
-        color: Colors.grey,
-        child: ListView(
-          children: [
-            SizedBox(
-              height: setHeight(context, .05),
-            ),
-            GestureDetector(
-              onTap: () {
-                scrollTo!(0);
-              },
-              child: CircleAvatar(
-                radius: setWidth(context, .15),
+    return SizedBox(
+      width: setWidth(context, .5),
+      child: Drawer(
+        child: Container(
+          color: secondaryColor,
+          child: ListView(
+            children: [
+              SizedBox(
+                height: setHeight(context, .05),
               ),
-            ),
-            SizedBox(
-              height: setHeight(context, .05),
-            ),
-            buildMenuItem(
-              text: 'About',
-              icon: const FaIcon(
-                FontAwesomeIcons.person,
-                color: Colors.white,
+              GestureDetector(
+                onTap: () {
+                  scrollTo!(0);
+                },
+                child: CircleAvatar(
+                  radius: setWidth(context, .15),
+                  child: ClipOval(
+                    child: Image.asset(
+                      'img/profile/ssk-contact.jpeg',
+                    ),
+                  ),
+                ),
               ),
-              func: () {
-                scrollTo!(1);
-              },
-            ),
-            buildMenuItem(
-              text: 'Skills',
-              icon: const FaIcon(
-                FontAwesomeIcons.computer,
-                color: Colors.white,
+              SizedBox(
+                height: setHeight(context, .05),
               ),
-              func: () {
-                scrollTo!(2);
-              },
-            ),
-            buildMenuItem(
-              text: 'Projects',
-              icon: const FaIcon(
-                FontAwesomeIcons.diagramProject,
-                color: Colors.white,
+              buildMenuItem(
+                text: 'About',
+                icon: const FaIcon(
+                  FontAwesomeIcons.person,
+                  color: quaternaryColor,
+                ),
+                func: () {
+                  scrollTo!(1);
+                },
               ),
-              func: () {
-                scrollTo!(3);
-              },
-            ),
-            buildMenuItem(
-              text: 'Contacts',
-              icon: const FaIcon(
-                FontAwesomeIcons.addressCard,
-                color: Colors.white,
+              buildMenuItem(
+                text: 'Skills',
+                icon: const FaIcon(
+                  FontAwesomeIcons.computer,
+                  color: Colors.white,
+                ),
+                func: () {
+                  scrollTo!(2);
+                },
               ),
-              func: () {
-                scrollTo!(4);
-              },
-            ),
-          ],
+              buildMenuItem(
+                text: 'Projects',
+                icon: const FaIcon(
+                  FontAwesomeIcons.diagramProject,
+                  color: Colors.white,
+                ),
+                func: () {
+                  scrollTo!(3);
+                },
+              ),
+              buildMenuItem(
+                text: 'Contacts',
+                icon: const FaIcon(
+                  FontAwesomeIcons.addressCard,
+                  color: Colors.white,
+                ),
+                func: () {
+                  scrollTo!(4);
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -83,13 +91,13 @@ class NavigationBarMobile extends StatelessWidget {
     required FaIcon icon,
     required Function func,
   }) {
-    final color = Colors.white;
+    const color = quaternaryColor;
 
     return ListTile(
       leading: icon,
       title: Text(
         text,
-        style: TextStyle(
+        style: const TextStyle(
           color: color,
         ),
       ),

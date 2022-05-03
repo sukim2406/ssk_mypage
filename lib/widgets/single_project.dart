@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../constants/dimensions.dart';
 import '../constants/constants.dart';
@@ -74,27 +75,45 @@ class _SingleProjectMobileState extends State<SingleProjectMobile> {
                 ),
               ),
             ),
+            Center(
+              child: GestureDetector(
+                onTap: () async {
+                  Uri uri = Uri.parse(widget.project['github']);
+                  if (await canLaunchUrl(uri)) {
+                    await launchUrl(uri);
+                  } else {
+                    throw 'Could not launch ${widget.project['github']}';
+                  }
+                },
+                child: const Text(
+                  'See GITHUB REPO.',
+                  style: TextStyle(
+                    color: quaternaryColor,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
             SizedBox(
-              height: setHeight(context, .1),
-              width: setWidth(context, .9),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    widget.project['github'],
-                    style: const TextStyle(
-                      color: quaternaryColor,
-                      fontWeight: FontWeight.bold,
-                    ),
+              height: setHeight(context, .02),
+            ),
+            Center(
+              child: GestureDetector(
+                onTap: () async {
+                  Uri uri = Uri.parse(widget.project['link']);
+                  if (await canLaunchUrl(uri)) {
+                    await launchUrl(uri);
+                  } else {
+                    throw 'Could not launch ${widget.project['link']}';
+                  }
+                },
+                child: const Text(
+                  'See LINK',
+                  style: TextStyle(
+                    color: quaternaryColor,
+                    fontWeight: FontWeight.bold,
                   ),
-                  Text(
-                    widget.project['link'],
-                    style: const TextStyle(
-                      color: quaternaryColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
+                ),
               ),
             ),
             SizedBox(
@@ -145,7 +164,7 @@ class _SingleProjectMobileState extends State<SingleProjectMobile> {
                         child: Container(
                           width: 12.0,
                           height: 12.0,
-                          margin: EdgeInsets.symmetric(
+                          margin: const EdgeInsets.symmetric(
                             vertical: 8.0,
                             horizontal: 4.0,
                           ),
@@ -193,7 +212,7 @@ class _SingleProjectDesktopState extends State<SingleProjectDesktop> {
             borderRadius: const BorderRadius.all(
               Radius.circular(5.0),
             ),
-            child: Container(
+            child: SizedBox(
               child: Image.asset(
                 item,
                 fit: BoxFit.contain,
@@ -236,27 +255,51 @@ class _SingleProjectDesktopState extends State<SingleProjectDesktop> {
             ),
           ),
           SizedBox(
-            height: setHeight(context, .1),
-            width: setWidth(context, .5),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  widget.project['github'],
-                  style: const TextStyle(
-                    color: secondaryColor,
-                    fontWeight: FontWeight.bold,
-                  ),
+            height: setHeight(context, .04),
+          ),
+          Center(
+            child: GestureDetector(
+              onTap: () async {
+                Uri uri = Uri.parse(widget.project['github']);
+                if (await canLaunchUrl(uri)) {
+                  await launchUrl(uri);
+                } else {
+                  throw 'Could not launch ${widget.project['github']}';
+                }
+              },
+              child: const Text(
+                'See GITHUB REPO.',
+                style: TextStyle(
+                  color: secondaryColor,
+                  fontWeight: FontWeight.bold,
                 ),
-                Text(
-                  widget.project['link'],
-                  style: const TextStyle(
-                    color: secondaryColor,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
+              ),
             ),
+          ),
+          SizedBox(
+            height: setHeight(context, .02),
+          ),
+          Center(
+            child: GestureDetector(
+              onTap: () async {
+                Uri uri = Uri.parse(widget.project['link']);
+                if (await canLaunchUrl(uri)) {
+                  await launchUrl(uri);
+                } else {
+                  throw 'Could not launch ${widget.project['link']}';
+                }
+              },
+              child: const Text(
+                'See LINK',
+                style: TextStyle(
+                  color: secondaryColor,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: setHeight(context, .04),
           ),
           SizedBox(
             height: setHeight(context, .1),
@@ -305,7 +348,7 @@ class _SingleProjectDesktopState extends State<SingleProjectDesktop> {
                       child: Container(
                         width: 12.0,
                         height: 12.0,
-                        margin: EdgeInsets.symmetric(
+                        margin: const EdgeInsets.symmetric(
                           vertical: 8.0,
                           horizontal: 4.0,
                         ),

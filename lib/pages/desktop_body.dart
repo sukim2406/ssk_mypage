@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:ssk_mypage/constants/constants.dart';
-import 'package:ssk_mypage/constants/dimensions.dart';
-import 'package:ssk_mypage/widgets/contact_widget.dart';
-import 'package:ssk_mypage/widgets/home_widget.dart';
-import 'package:ssk_mypage/widgets/projects_widget.dart';
-import 'package:ssk_mypage/widgets/skills_widget.dart';
 
+import '../constants/constants.dart';
+import '../constants/dimensions.dart';
+
+import '../widgets/contact_widget.dart';
+import '../widgets/home_widget.dart';
+import '../widgets/projects_widget.dart';
+import '../widgets/skills_widget.dart';
 import '../widgets/navigation_bar.dart';
 import '../widgets/about_widget.dart';
 import '../widgets/single_project.dart';
@@ -62,11 +63,21 @@ class DesktopBody extends StatelessWidget {
                         scrollTo: scrollFunction,
                       ),
                       const ContactWidgetDesktop(),
-                      const SingleProjectDesktop(project: projShareDo),
-                      const SingleProjectDesktop(project: projSoSoDay),
-                      const SingleProjectDesktop(project: projEcomWebApp),
                       const SingleProjectDesktop(
-                          project: projDailyCommitProject),
+                        project: projShareDo,
+                      ),
+                      const SingleProjectDesktop(
+                        project: projSoSoDay,
+                      ),
+                      const SingleProjectDesktop(
+                        project: projEcomWebApp,
+                      ),
+                      const SingleProjectDesktop(
+                        project: projLookAndLike,
+                      ),
+                      const SingleProjectDesktop(
+                        project: projDailyCommitProject,
+                      ),
                     ],
                   ),
                 ),

@@ -24,6 +24,27 @@ class _ProjectsWidgetMobileState extends State<ProjectsWidgetMobile> {
       Container(
         height: setHeight(context, .3),
         width: setWidth(context, .3),
+        color: tertiaryColor,
+        child: GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const SingleProjectMobile(
+                  project: projDailyCommitProject,
+                ),
+              ),
+            );
+          },
+          child: Image.asset(
+            dailycommitprojectImgs[0],
+            fit: BoxFit.cover,
+          ),
+        ),
+      ),
+      Container(
+        height: setHeight(context, .3),
+        width: setWidth(context, .3),
         color: primaryColor,
         child: GestureDetector(
           onTap: () {
@@ -87,8 +108,23 @@ class _ProjectsWidgetMobileState extends State<ProjectsWidgetMobile> {
       Container(
         height: setHeight(context, .3),
         width: setWidth(context, .3),
-        color: quaternaryColor,
-        child: Text('More in process'),
+        color: tertiaryColor,
+        child: GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const SingleProjectMobile(
+                  project: projLookAndLike,
+                ),
+              ),
+            );
+          },
+          child: Image.asset(
+            lookandlikeImgs[0],
+            fit: BoxFit.cover,
+          ),
+        ),
       ),
     ];
 
@@ -138,6 +174,48 @@ class _ProjectsWidgetMobileState extends State<ProjectsWidgetMobile> {
       Container(
         height: setHeight(context, .3),
         width: setWidth(context, .3),
+        color: tertiaryColor,
+        child: GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const SingleProjectMobile(
+                  project: projLookAndLike,
+                ),
+              ),
+            );
+          },
+          child: Image.asset(
+            lookandlikeImgs[0],
+            fit: BoxFit.cover,
+          ),
+        ),
+      ),
+      Container(
+        height: setHeight(context, .3),
+        width: setWidth(context, .3),
+        color: tertiaryColor,
+        child: GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const SingleProjectMobile(
+                  project: projDailyCommitProject,
+                ),
+              ),
+            );
+          },
+          child: Image.asset(
+            dailycommitprojectImgs[0],
+            fit: BoxFit.cover,
+          ),
+        ),
+      ),
+      Container(
+        height: setHeight(context, .3),
+        width: setWidth(context, .3),
         color: primaryColor,
         child: GestureDetector(
           onTap: () {
@@ -155,12 +233,6 @@ class _ProjectsWidgetMobileState extends State<ProjectsWidgetMobile> {
             fit: BoxFit.cover,
           ),
         ),
-      ),
-      Container(
-        height: setHeight(context, .3),
-        width: setWidth(context, .3),
-        color: tertiaryColor,
-        child: Text('More in process!'),
       ),
     ];
 
@@ -183,7 +255,7 @@ class _ProjectsWidgetMobileState extends State<ProjectsWidgetMobile> {
               children: [
                 Container(
                   height: setHeight(context, .8),
-                  width: setWidth(context, .3),
+                  width: setWidth(context, .25),
                   color: Colors.amber,
                   child: ListView.builder(
                     controller: scrollControllerOne,
@@ -194,7 +266,7 @@ class _ProjectsWidgetMobileState extends State<ProjectsWidgetMobile> {
                 ),
                 Container(
                   height: setHeight(context, .8),
-                  width: setWidth(context, .3),
+                  width: setWidth(context, .25),
                   color: Colors.blue,
                   child: ListView.builder(
                     controller: scrollControllerTwo,
@@ -206,7 +278,7 @@ class _ProjectsWidgetMobileState extends State<ProjectsWidgetMobile> {
                 ),
                 Container(
                   height: setHeight(context, .8),
-                  width: setWidth(context, .3),
+                  width: setWidth(context, .25),
                   color: Colors.red,
                   child: ListView.builder(
                     controller: scrollControllerThree,
@@ -281,6 +353,19 @@ class _ProjectsWidgetDesktopState extends State<ProjectsWidgetDesktop> {
       GestureDetector(
         onTap: () {
           widget.scrollTo(8);
+        },
+        child: ProjectCard(
+          image: lookandlikeImgs[0],
+          title: projLookAndLike['title'] as String,
+          boxHeight: setHeight(context, 1),
+          boxWidth: setWidth(context, 1),
+          titleHeight: setHeight(context, .05),
+          titleWidth: setWidth(context, 1),
+        ),
+      ),
+      GestureDetector(
+        onTap: () {
+          widget.scrollTo(9);
         },
         child: ProjectCard(
           image: dailycommitprojectImgs[0],
