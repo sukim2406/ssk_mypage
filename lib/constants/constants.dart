@@ -41,12 +41,12 @@ const List<String> ecomwebappImgs = [
   'img/projects/ecomwebapp/6.png',
 ];
 
-const List<String> lookandlikeImgs = [
-  'img/projects/lookandlike/1.png',
-  'img/projects/lookandlike/2.png',
-  'img/projects/lookandlike/3.png',
-  'img/projects/lookandlike/4.png',
-  'img/projects/lookandlike/5.png',
+const List<String> looknlikeImgs = [
+  'img/projects/looknlike/1.png',
+  'img/projects/looknlike/2.png',
+  'img/projects/looknlike/3.png',
+  'img/projects/looknlike/4.png',
+  'img/projects/looknlike/5.png',
 ];
 
 const List<String> dailycommitprojectImgs = [
@@ -97,17 +97,19 @@ const projEcomWebApp = {
   ]
 };
 
-const projLookAndLike = {
-  'screenshots': lookandlikeImgs,
+const projLookNLike = {
+  'screenshots': looknlikeImgs,
   'about':
-      'Look & Like is an outfit image sharing SNS that enables you to share outfit ideas with its product information. You can upload your image, and search for others. The difference with other SNS applications are that in Look&Like you can only \'Like\' a post and does not provide messaging or leave a comment.',
-  'title': 'Look & Like ( In developement )',
-  'github': 'https://github.com/sukim2406/LookNLike',
+      'LookNLike is Pinterest inspired image sharing webapp. Newsfeed tab will show all the posts in stylish layout, projects tab lists all the projects that you can subscribe/unsubscribe, subscription tab will only show the posts from subscribed projects. The webapp is built with django, and depoloyed to VPS from vultr using Docker and Nginx',
+  'title': 'Look & Like',
+  'github': 'https://github.com/sukim2406/looknlike_django',
+  'link': 'http://158.247.216.236',
   'tech': [
-    'img/skills/dart.png',
-    'img/skills/flutter.png',
     'img/skills/django.png',
     'img/skills/python.png',
+    'img/skills/docker.png',
+    'img/skills/nginx.png',
+    'img/skills/portainer.png',
   ]
 };
 

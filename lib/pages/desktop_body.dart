@@ -73,7 +73,7 @@ class DesktopBody extends StatelessWidget {
                         project: projEcomWebApp,
                       ),
                       const SingleProjectDesktop(
-                        project: projLookAndLike,
+                        project: projLookNLike,
                       ),
                       const SingleProjectDesktop(
                         project: projDailyCommitProject,

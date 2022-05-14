@@ -124,13 +124,13 @@ class _ProjectsWidgetMobileState extends State<ProjectsWidgetMobile> {
               context,
               MaterialPageRoute(
                 builder: (context) => const SingleProjectMobile(
-                  project: projLookAndLike,
+                  project: projLookNLike,
                 ),
               ),
             );
           },
           child: Image.asset(
-            lookandlikeImgs[0],
+            looknlikeImgs[0],
             fit: BoxFit.cover,
           ),
         ),
@@ -190,13 +190,13 @@ class _ProjectsWidgetMobileState extends State<ProjectsWidgetMobile> {
               context,
               MaterialPageRoute(
                 builder: (context) => const SingleProjectMobile(
-                  project: projLookAndLike,
+                  project: projLookNLike,
                 ),
               ),
             );
           },
           child: Image.asset(
-            lookandlikeImgs[0],
+            looknlikeImgs[0],
             fit: BoxFit.cover,
           ),
         ),
@@ -364,8 +364,8 @@ class _ProjectsWidgetDesktopState extends State<ProjectsWidgetDesktop> {
           widget.scrollTo(8);
         },
         child: ProjectCard(
-          image: lookandlikeImgs[0],
-          title: projLookAndLike['title'] as String,
+          image: looknlikeImgs[0],
+          title: projLookNLike['title'] as String,
           boxHeight: setHeight(context, 1),
           boxWidth: setWidth(context, 1),
           titleHeight: setHeight(context, .05),
