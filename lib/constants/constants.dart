@@ -12,6 +12,15 @@ const tertiaryColor = Color.fromRGBO(255, 240, 124, 1);
 //#f0f7ee
 const quaternaryColor = Color.fromRGBO(240, 247, 238, 1);
 
+const List<String> tweeterImgs = [
+  'img/projects/musk_at_tweeter/1.png',
+  'img/projects/musk_at_tweeter/2.png',
+  'img/projects/musk_at_tweeter/3.png',
+  'img/projects/musk_at_tweeter/4.png',
+  'img/projects/musk_at_tweeter/5.png',
+  'img/projects/musk_at_tweeter/6.png',
+];
+
 const List<String> sharedoImgs = [
   'img/projects/share-do/1.png',
   'img/projects/share-do/2.png',
@@ -122,4 +131,18 @@ const projDailyCommitProject = {
   'link':
       'https://www.youtube.com/playlist?list=PLYrIoLucH5shIJDSezpkZz8Z7Eq0e-ykU',
   'tech': [],
+};
+
+const projectTweeter = {
+  'screenshots': tweeterImgs,
+  'title': 'Musk-at-tweeter',
+  'about':
+      'I wanted to make a fullstack application using Django rest framework as backend and Flutter as frontend. Its about the same time that I heard Elon Musk is trying to purchase Twitter, and it gave me the idea to make twitter clone app.',
+  'github': 'http://github.com/sukim2406/fullstack_app',
+  'link': '',
+  'tech': [
+    'img/skills/django.png',
+    'img/skills/python.png',
+    'img/skills/flutter.png',
+  ]
 };

@@ -135,9 +135,51 @@ class _ProjectsWidgetMobileState extends State<ProjectsWidgetMobile> {
           ),
         ),
       ),
+      Container(
+        height: setHeight(context, .3),
+        width: setWidth(context, .3),
+        color: tertiaryColor,
+        child: GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const SingleProjectMobile(
+                  project: projectTweeter,
+                ),
+              ),
+            );
+          },
+          child: Image.asset(
+            tweeterImgs[0],
+            fit: BoxFit.cover,
+          ),
+        ),
+      ),
     ];
 
     List<Widget> temp2 = [
+      Container(
+        height: setHeight(context, .3),
+        width: setWidth(context, .3),
+        color: tertiaryColor,
+        child: GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const SingleProjectMobile(
+                  project: projectTweeter,
+                ),
+              ),
+            );
+          },
+          child: Image.asset(
+            tweeterImgs[0],
+            fit: BoxFit.cover,
+          ),
+        ),
+      ),
       Container(
         height: setHeight(context, .3),
         width: setWidth(context, .3),
@@ -385,10 +427,17 @@ class _ProjectsWidgetDesktopState extends State<ProjectsWidgetDesktop> {
           titleWidth: setWidth(context, 1),
         ),
       ),
-      ClipRRect(
-        borderRadius: BorderRadius.circular(25),
-        child: Container(
-          color: Colors.black,
+      GestureDetector(
+        onTap: () {
+          widget.scrollTo(10);
+        },
+        child: ProjectCard(
+          image: tweeterImgs[0],
+          title: projectTweeter['title'] as String,
+          boxHeight: setHeight(context, 1),
+          boxWidth: setWidth(context, 1),
+          titleHeight: setHeight(context, .05),
+          titleWidth: setWidth(context, 1),
         ),
       ),
       ClipRRect(

@@ -78,6 +78,9 @@ class DesktopBody extends StatelessWidget {
                       const SingleProjectDesktop(
                         project: projDailyCommitProject,
                       ),
+                      const SingleProjectDesktop(
+                        project: projectTweeter,
+                      ),
                     ],
                   ),
                 ),
